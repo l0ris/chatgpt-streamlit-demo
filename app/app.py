@@ -22,7 +22,7 @@ st.set_page_config(
 )
 
 st.header("Streamlit Chat - Demo")
-st.markdown("[Github](https://github.com/kobrinartem/chatgpt-streamlit-demo)")
+st.markdown("[Github](https://github.com/l0ris/chatgpt-streamlit-demo)")
 
 if 'polly' not in st.session_state:
     st.session_state['polly'] = []
@@ -34,7 +34,7 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 def query(message):
-	response = openai.Completion.create(engine="text-davinci-003", prompt=message, max_tokens=256, temperature=0.5, frequency_penalty=1, presence_penalty=1).choices[0]
+	response = openai.Completion.create(engine="gpt-3.5-turbo-instruct", prompt=message, max_tokens=256, temperature=0.5, frequency_penalty=1, presence_penalty=1).choices[0]
 	return response.text
 
 def get_text():
